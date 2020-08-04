@@ -28,7 +28,7 @@ var app         = new Vue({
           var obj = response.data;
           for (var key in obj) {
             //if(obj[key].AdminImage == "AdminImage"){
-              var imageurl = obj[key].setupimageLlogo;
+              var imageurl = obj[key].setupimagelogo;
 
               var idxsetup = obj[key].setupprofileid;
               var idxtitle = obj[key].setuptitle;
@@ -46,16 +46,15 @@ var app         = new Vue({
             console.log(imageurl);
 
           if(http.status != 404){
-            var urlimg = '<img alt="image" src="'+base_url+'/ci-spp/upload/logo/'+cekimg+'" width="240" height="240" class="rounded-circle profile-widget-picture">';
-            app.uploadedImageLogo       = urlimg;
+            var urlimg              = '<img alt="image" src="'+base_url+'/ci-spp/upload/logo/'+cekimg+'" width="240" height="240" class="rounded-circle profile-widget-picture">';
+            app.uploadedImageLogo   = urlimg;
             app.formLogo.setupid    = idxsetup;
             app.formLogo.setuptitle = idxtitle; 
             app.formLogo.setupname  = idxname;
             app.formLogo.setupdesc  = idxdesc;  
           }
           else{
-            app.uploadedImageLogo = '<img alt="image" src="'+base_url+'/ci-spp/upload/logo/default.jpeg" width="240" height="240" class="rounded-circle profile-widget-picture">';
-            app.uploadedImageLogo       = urlimg;
+            app.uploadedImageLogo   = '<img alt="image" src="'+base_url+'/ci-spp/upload/logo/default.jpeg" width="240" height="240" class="rounded-circle profile-widget-picture">';
             app.formLogo.setupid    = idxsetup;
             app.formLogo.setuptitle = idxtitle; 
             app.formLogo.setupname  = idxname;

@@ -1,9 +1,36 @@
+<?php
+
+  $img   = "default.jpeg";
+  $stpnm = "Aplikasi Payment SPP Bryn";
+  $query = $this->db->query(" SELECT setupimagelogo, setupname
+                              FROM   m_setupprofile
+                            ");
+  if ($query->num_rows() > 0) {
+      $arr   = $query->row();
+      $img   = (trim($arr->setupimagelogo) != "") ? $arr->setupimagelogo : "default.jpeg";
+      $stpnm = $arr->setupname;
+  }
+
+  $image = "./upload/logo/".$img;
+
+  if(file_exists($image)){
+      $image = base_url()."upload/logo/".$img;
+    }
+    else{
+      $image = base_url()."upload/logo/default.jpeg";
+    }
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>App Payment Student</title>
+  <title><?php echo $stpnm; ?></title>
+  <link rel="shortcut icon" href="<?php echo $image; ?>">
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/stisla-master/assets/modules/bootstrap.min.css">

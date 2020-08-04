@@ -29,28 +29,28 @@
               <?php
 
                 $imgurl = "default.jpeg";
-                $stptl  = "Apps Savings Student";
+                $stptl  = "Apps Payment SPP Student";
                 $res    = $this->db->query('
-                                            SELECT  setupimagelogo, setupname
+                                            SELECT  setupimage, setupname
                                             FROM    m_setupprofile
                                         ');
                 if ($res->num_rows() > 0) {
                   $keyval = $res->row();
-                  $imgurl = $keyval->setupimagelogo;
+                  $imgurl = $keyval->setupimage;
                   $stptl  = $keyval->setupname;
                 }
 
                 if($imgurl != ""){
-                  $uri = "./upload/logo/".$imgurl;
+                  $uri = "./upload/profile/".$imgurl;
                   if(file_exists($uri)){
-                    $urlimg = base_url()."/upload/logo/".$imgurl;
+                    $urlimg = base_url()."/upload/profile/".$imgurl;
                   }
                   else{
-                    $urlimg = base_url()."/upload/logo/default.jpeg";
+                    $urlimg = base_url()."/upload/profile/default.jpeg";
                   }
                 }
                 else{
-                  $urlimg = base_url()."/upload/logo/default.jpeg";
+                  $urlimg = base_url()."/upload/profile/default.jpeg";
                 }
 
               ?>
